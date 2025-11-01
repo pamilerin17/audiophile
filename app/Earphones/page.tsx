@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Ear from '@/assets/3.png'
 import Bring from '@/components/Bring/Bring'
 import Category from '@/components/Category/Category'
+import Link from 'next/link'
 
 function Earphones() {
   return (
@@ -37,10 +38,11 @@ function Earphones() {
         new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even
         in noisy environments with its active noise cancellation feature.
       </h2>
-
-      <button className="uppercase bg-orange-500 text-white py-3 px-8 tracking-wider w-fit mx-auto md:mx-0  transition">
+      <Link href='/products/yx1'>
+      <button className="uppercase bg-orange-500 text-white py-3 px-8 tracking-wider w-fit mx-auto md:mx-0  transition cursor-pointer">
         See Product
       </button>
+      </Link>
     </div>
 
   </div>

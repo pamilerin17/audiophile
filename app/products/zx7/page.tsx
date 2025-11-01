@@ -6,13 +6,14 @@ import { useCart } from "@/app/context/CartContext";
 import Four from '@/assets/4.png'
 import Picttt from '@/assets/image-category-page-preview.jpg'
 import Pictt from '@/assets/5.png'
-import Gallery1 from "@/assets/assets/assets/product-zx9-speaker/desktop/image-gallery-1.jpg";
-import Gallery2 from "@/assets/assets/assets/product-zx9-speaker/desktop/image-gallery-2.jpg";
-import Gallery3 from "@/assets/assets/assets/product-zx9-speaker/desktop/image-gallery-3.jpg";
 import Category from '@/components/Category/Category'
 import Bring from '@/components/Bring/Bring'
+import Five from '@/assets/image-product.jpg'
+import Gal from '@/assets/assets/assets/product-zx7-speaker/desktop/image-gallery-1.jpg'
+import Gall from '@/assets/assets/assets/product-zx7-speaker/desktop/image-gallery-2.jpg'
+import Galll from '@/assets/image-gallery-3.jpg'
 
-export default function Zx9SpeakerPage() {
+export default function Zx7SpeakerPage() {
   const { addToCart } = useCart();
 
   const product = {
@@ -38,15 +39,15 @@ export default function Zx9SpeakerPage() {
 
         {/* Product Image */}
         <div className="bg-[#F1F1F1] rounded-lg flex items-center justify-center py-16">
-          <Image src={Four} alt="ZX9 Speaker" className="w-[300px] md:w-[450px]" />
+          <Image src={Five} alt="ZX9 Speaker" className="w-[300px] md:w-[450px]" />
         </div>
 
         {/* Product Info */}
         <div className="flex flex-col gap-6 max-w-md">
-          <p className="text-orange-500 uppercase tracking-[0.3em]">New Product</p>
+          
 
           <h2 className="text-3xl md:text-5xl font-bold uppercase leading-tight">
-            ZX9 <br /> Speaker
+            ZX7 <br /> Speaker
           </h2>
 
           <p className="text-gray-600">
@@ -55,7 +56,7 @@ export default function Zx9SpeakerPage() {
             creating new possibilities for more pleasing and practical audio setups.
           </p>
 
-          <p className="text-xl font-bold">$ 4,500</p>
+          <p className="text-xl font-bold">$ 1,850</p>
 
           <button
              onClick={() => addToCart(product)}
@@ -72,9 +73,9 @@ export default function Zx9SpeakerPage() {
         <div>
           <h3 className="text-2xl font-bold uppercase mb-6">Features</h3>
           <p className="text-gray-600 leading-relaxed">
-          Connect via Bluetooth or nearly any wired source. This speaker features optical, digital coaxial, USB Type-B, stereo RCA, and stereo XLR inputs, allowing you to have up to five wired source devices connected for easy switching. Improved bluetooth technology offers near lossless audio quality at up to 328ft (100m).
+          Reap the advantages of a flat diaphragm tweeter cone. This provides a fast response rate and excellent high frequencies that lower tiered bookshelf speakers cannot provide. The woofers are made from aluminum that produces a unique and clear sound. XLR inputs allow you to connect to a mixer for more advanced usage.
 
-Discover clear, more natural sounding highs than the competition with ZX9’s signature planar diaphragm tweeter. Equally important is its powerful room-shaking bass courtesy of a 6.5” aluminum alloy bass unit. You’ll be able to enjoy equal sound quality whether in a large room or small den. Furthermore, you will experience new sensations from old songs since it can respond to even the subtle waveforms.
+The ZX7 speaker is the perfect blend of stylish design and high performance. It houses an encased MDF wooden enclosure which minimises acoustic resonance. Dual connectivity allows pairing through bluetooth or traditional optical and RCA input. Switch input sources and control volume at your finger tips with the included wireless remote. This versatile speaker is equipped to deliver an authentic listening experience.
           </p>
         </div>
 
@@ -107,12 +108,12 @@ Discover clear, more natural sounding highs than the competition with ZX9’s si
   {/* LEFT SIDE (2 stacked images) */}
   <div className="grid gap-6">
     <Image
-      src={Gallery1}
+      src={Gal}
       alt="Gallery"
       className="rounded-lg object-cover w-full h-[200px] md:h-[280px]"
     />
     <Image
-      src={Gallery2}
+      src={Gall}
       alt="Gallery"
       className="rounded-lg object-cover w-full h-[200px] md:h-[280px]"
     />
@@ -121,7 +122,7 @@ Discover clear, more natural sounding highs than the competition with ZX9’s si
   {/* RIGHT SIDE (full height image) */}
   <div>
     <Image
-      src={Gallery3}
+      src={Galll}
       alt="Gallery"
       className="rounded-lg object-cover w-full h-[430px] md:h-[580px]"
     />

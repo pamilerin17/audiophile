@@ -34,7 +34,7 @@ function page() {
 
   {/* Right: Text */}
   <div className="text-center md:text-left max-w-md flex flex-col gap-6">
-    <p className="uppercase text-orange-500 md:text-orange-200 tracking-[0.5em]">New Product</p>
+    <p className="uppercase text-orange-500 md:text-orange-400 tracking-[0.5em]">New Product</p>
     <h1 className="uppercase font-bold text-4xl md:text-6xl text-white md:text-black tracking-wider">
       ZX9 <br /> Speaker
     </h1>
@@ -62,9 +62,11 @@ function page() {
         speaker uses high-end audiophile components that represent the top of the 
         line powered speakers for home or studio use.
       </p>
+      <Link href='/products/zx7'>
       <button className="uppercase  bg-orange-500 py-3 px-6 tracking-wider   transition">
         See Product
       </button>
+      </Link>
     </div>
 
     {/* Image Right */}
