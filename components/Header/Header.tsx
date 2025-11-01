@@ -4,39 +4,43 @@ import Link from "next/link";
 import { CiShoppingCart } from "react-icons/ci";
 import { HiOutlineMenu, HiX } from "react-icons/hi";
 import { useState } from "react";
+import { useCart } from "@/app/context/CartContext";
 
 export default function Header() {
+  const { cartCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full bg-black text-white px-6 py-5 fixed top-0 left-0 z-50 shadow-lg">
-      {/* CONTAINER */}
-      <div className="flex items-center justify-between md:justify-center max-w-7xl mx-auto">
-        
-        {/* LEFT — Logo */}
+    <header className="w-full bg-black text-white px-6 py-5 fixed top-0 left-0 z-9999 shadow-lg">
+      <div className="flex items-center justify-between md:justify-center max-w-7xl mx-auto relative">
+
+        {/* LOGO */}
         <div className="flex-1 md:flex-none">
-          <h1 className="text-2xl font-bold tracking-widest lowercase">
-            audiophile
-          </h1>
+          <h1 className="text-2xl font-bold tracking-widest lowercase">audiophile</h1>
         </div>
 
-        {/* CENTER — Desktop Nav */}
+        {/* DESKTOP NAV */}
         <nav className="hidden md:flex flex-1 justify-center gap-8 text-sm uppercase tracking-wider">
-          <Link href="/" className="hover:text-orange-500">Home</Link>
-          <Link href="/Headphones" className="hover:text-orange-500">Headphones</Link>
-          <Link href="/speakers" className="hover:text-orange-500">Speakers</Link>
-          <Link href="/earphones" className="hover:text-orange-500">Earphones</Link>
+          <Link href="/">Home</Link>
+          <Link href="/Headphones">Headphones</Link>
+          <Link href="/Speakers">Speakers</Link>
+          <Link href="/Earphones">Earphones</Link>
         </nav>
 
-        {/* RIGHT — Cart + Menu */}
-        <div className="flex-1 md:flex-none flex justify-end items-center gap-4">
-          <div className="text-2xl cursor-pointer hover:text-orange-500">
+        {/* CART + HAMBURGER */}
+        <div className="flex-1 md:flex-none flex justify-end items-center gap-4 relative">
+          <div className="relative text-2xl cursor-pointer hover:text-orange-500">
             <CiShoppingCart />
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-orange-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* ✅ MOBILE MENU BUTTON WORKING */}
           <button
-            className="md:hidden text-3xl cursor-pointer"
+            className="md:hidden text-3xl cursor-pointer z-99999"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <HiX /> : <HiOutlineMenu />}
@@ -44,13 +48,13 @@ export default function Header() {
         </div>
       </div>
 
-      {/* MOBILE DROPDOWN NAV */}
+      {/* ✅ MOBILE NAV DROPDOWN */}
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-black py-6 flex flex-col gap-6 text-center text-sm uppercase tracking-wider z-40 border-t border-gray-800">
-          <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-orange-500">Home</Link>
-          <Link href="/headphones" onClick={() => setMenuOpen(false)} className="hover:text-orange-500">Headphones</Link>
-          <Link href="/speakers" onClick={() => setMenuOpen(false)} className="hover:text-orange-500">Speakers</Link>
-          <Link href="/earphones" onClick={() => setMenuOpen(false)} className="hover:text-orange-500">Earphones</Link>
+        <div className="absolute top-full left-0 w-full bg-black py-6 flex flex-col gap-6 text-center text-sm uppercase tracking-wider border-t border-gray-800 z-9999">
+          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link href="/Headphones" onClick={() => setMenuOpen(false)}>Headphones</Link>
+          <Link href="/Speakers" onClick={() => setMenuOpen(false)}>Speakers</Link>
+          <Link href="/Earphones" onClick={() => setMenuOpen(false)}>Earphones</Link>
         </div>
       )}
     </header>
