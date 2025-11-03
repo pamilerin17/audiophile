@@ -23,7 +23,7 @@ export default function Hero() {
           </p>
 
           <Link
-            href="/product"
+            href="/products/xx99-mark-two"
             className="bg-primary bg-[#FBAF85] transition text-white px-6 py-3 uppercase tracking-wide text-sm"
           >
             See Product

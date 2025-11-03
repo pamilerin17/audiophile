@@ -1,8 +1,9 @@
 // app/components/ProductsSection.tsx
 import Image from "next/image";
-import Pics from '@/assets/4.png'
-import Picss from '@/assets/image-gallery-2.jpg'
-import Picsss from '@/assets/image-gallery-3.jpg'
+import Pics from '@/assets/assets/assets/product-zx9-speaker/desktop/image-product.jpg'
+import Picss from '@/assets/image-gallery-3.jpg'
+import Picsss from '@/assets/image-gallery-2.jpg'
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -27,9 +28,11 @@ export default function Hero() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <button className="bg-black text-white uppercase tracking-wider px-6 py-3 rounded-md">
+          <Link href='/products/zx9'>
+          <button className="bg-black text-white uppercase tracking-wider px-6 py-3 rounded-md cursor-pointer">
             See Product
           </button>
+          </Link>
         </div>
       </div>
 
@@ -41,15 +44,17 @@ export default function Hero() {
     <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-widest text-black">
       ZX7 Speaker
     </h2>
-    <button className="border border-black uppercase tracking-wider px-6 py-3 rounded-md text-black">
+    <Link href='/products/zx7'>
+    <button className="border border-black uppercase tracking-wider px-6 py-3 rounded-md text-black cursor-pointer">
       See Product
     </button>
+    </Link>
   </div>
 
   {/* Image on Right */}
   <div className="mt-6 md:mt-0 w-[200px] md:w-[300px]">
     <Image
-      src={Picsss}
+      src={Picss}
       width={300}
       height={300}
       alt="ZX7 Speaker"
@@ -64,7 +69,7 @@ export default function Hero() {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="rounded-xl overflow-hidden">
           <Image
-            src={Picss}
+            src={Picsss}
             width={600}
             height={400}
             alt="YX1 Earphones"
@@ -77,9 +82,11 @@ export default function Hero() {
             <h2 className="text-3xl font-bold uppercase tracking-widest text-black">
               YX1 Earphones
             </h2>
-            <button className="border border-black uppercase tracking-wider px-6 py-3 rounded-md text-black">
+            <Link href='/products/yx1'>
+            <button className="cursor-pointer border border-black uppercase tracking-wider px-6 py-3 rounded-md text-black">
               See Product
             </button>
+            </Link>
           </div>
         </div>
       </div>

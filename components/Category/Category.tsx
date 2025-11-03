@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Pic1 from "@/assets/3.png";
-import Pic2 from "@/assets/4.png";
+import Pic2 from '@/assets/assets/assets/product-zx9-speaker/desktop/image-product.jpg';
 import Pic3 from "@/assets/5.png";
 
 
