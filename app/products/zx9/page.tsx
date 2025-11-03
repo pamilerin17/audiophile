@@ -1,37 +1,37 @@
-"use client";
+'use client'
 
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/app/context/CartContext";
-import Four from '@/assets/4.png'
-import Picttt from '@/assets/image-category-page-preview.jpg'
-import Pictt from '@/assets/5.png'
+
+import Four from '@/assets/assets/assets/product-zx9-speaker/desktop/image-category-page-preview.jpg';
+import Picttt from '@/assets/image-category-page-preview.jpg';
+import Pictt from '@/assets/5.png';
 import Gallery1 from "@/assets/assets/assets/product-zx9-speaker/desktop/image-gallery-1.jpg";
 import Gallery2 from "@/assets/assets/assets/product-zx9-speaker/desktop/image-gallery-2.jpg";
 import Gallery3 from "@/assets/assets/assets/product-zx9-speaker/desktop/image-gallery-3.jpg";
-import Category from '@/components/Category/Category'
-import Bring from '@/components/Bring/Bring'
+
+import Category from '@/components/Category/Category';
+import Bring from '@/components/Bring/Bring';
 
 export default function Zx9SpeakerPage() {
-  const { addToCart } = useCart();
+  const { items, addToCart, increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
 
   const product = {
-   id: "1",
-   name: "ZX9 Speaker",
-   price: 4500,
-   quantity: 1,
-   image: "/images/cart/image-zx9.jpg",
- };
- 
+    id: "zx9",
+    name: "ZX9 Speaker",
+    price: 4500,
+    quantity: 1,
+    image: "/images/cart/image-zx9.jpg",
+  };
 
   return (
     <div className="px-6 md:px-24 py-20 space-y-24">
-      
+
       {/* ✅ Back link */}
       <Link href="/Speakers" className="text-gray-500 hover:text-black">
         Go Back
       </Link>
-
 
       {/* ✅ Product Header Section */}
       <section className="grid md:grid-cols-2 gap-12 items-center">
@@ -55,26 +55,58 @@ export default function Zx9SpeakerPage() {
             creating new possibilities for more pleasing and practical audio setups.
           </p>
 
-          <p className="text-xl font-bold">$ 4,500</p>
+          <p className="text-xl font-bold">$ {product.price}</p>
 
           <button
-             onClick={() => addToCart(product)}
+            onClick={() => addToCart(product)}
             className="bg-orange-600 text-white py-3 px-8 uppercase tracking-wider hover:bg-orange-700 transition"
           >
             Add To Cart
           </button>
+
+          {/* CART ITEMS DISPLAY */}
+          {items.length > 0 && (
+            <div className="mt-6 flex flex-col gap-4">
+              {items.map(item => (
+                <div key={item.id} className="flex gap-4 items-center">
+                  <p className="flex-1">{item.name}</p>
+                  <p>${item.price}</p>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => decreaseQuantity(item.id)}
+                      className="bg-gray-200 px-2 rounded"
+                    >
+                      -
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button
+                      onClick={() => increaseQuantity(item.id)}
+                      className="bg-gray-200 px-2 rounded"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="text-red-600 hover:underline"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-
-      {/* ✅ Features Section */}
+      {/* ✅ Features & In The Box */}
       <section className="grid md:grid-cols-2 gap-12">
         <div>
           <h3 className="text-2xl font-bold uppercase mb-6">Features</h3>
           <p className="text-gray-600 leading-relaxed">
-          Connect via Bluetooth or nearly any wired source. This speaker features optical, digital coaxial, USB Type-B, stereo RCA, and stereo XLR inputs, allowing you to have up to five wired source devices connected for easy switching. Improved bluetooth technology offers near lossless audio quality at up to 328ft (100m).
+            Connect via Bluetooth or nearly any wired source. This speaker features optical, digital coaxial, USB Type-B, stereo RCA, and stereo XLR inputs, allowing you to have up to five wired source devices connected for easy switching. Improved Bluetooth technology offers near lossless audio quality at up to 328ft (100m).
 
-Discover clear, more natural sounding highs than the competition with ZX9’s signature planar diaphragm tweeter. Equally important is its powerful room-shaking bass courtesy of a 6.5” aluminum alloy bass unit. You’ll be able to enjoy equal sound quality whether in a large room or small den. Furthermore, you will experience new sensations from old songs since it can respond to even the subtle waveforms.
+            Discover clear, more natural sounding highs than the competition with ZX9’s signature planar diaphragm tweeter. Equally important is its powerful room-shaking bass courtesy of a 6.5” aluminum alloy bass unit. You’ll be able to enjoy equal sound quality whether in a large room or small den. Furthermore, you will experience new sensations from old songs since it can respond to even the subtle waveforms.
           </p>
         </div>
 
@@ -101,34 +133,28 @@ Discover clear, more natural sounding highs than the competition with ZX9’s si
         </div>
       </section>
 
-
       {/* ✅ Gallery Section */}
       <section className="mt-24 grid md:grid-cols-2 gap-6">
-  {/* LEFT SIDE (2 stacked images) */}
-  <div className="grid gap-6">
-    <Image
-      src={Gallery1}
-      alt="Gallery"
-      className="rounded-lg object-cover w-full h-[200px] md:h-[280px]"
-    />
-    <Image
-      src={Gallery2}
-      alt="Gallery"
-      className="rounded-lg object-cover w-full h-[200px] md:h-[280px]"
-    />
-  </div>
-
-  {/* RIGHT SIDE (full height image) */}
-  <div>
-    <Image
-      src={Gallery3}
-      alt="Gallery"
-      className="rounded-lg object-cover w-full h-[430px] md:h-[580px]"
-    />
-  </div>
-</section>
-
-
+        <div className="grid gap-6">
+          <Image
+            src={Gallery1}
+            alt="Gallery"
+            className="rounded-lg object-cover w-full h-[200px] md:h-[280px]"
+          />
+          <Image
+            src={Gallery2}
+            alt="Gallery"
+            className="rounded-lg object-cover w-full h-[200px] md:h-[280px]"
+          />
+        </div>
+        <div>
+          <Image
+            src={Gallery3}
+            alt="Gallery"
+            className="rounded-lg object-cover w-full h-[430px] md:h-[580px]"
+          />
+        </div>
+      </section>
 
       {/* ✅ You May Also Like */}
       <section className="text-center space-y-10">
@@ -139,7 +165,7 @@ Discover clear, more natural sounding highs than the competition with ZX9’s si
           {/* Like Item 1 */}
           <div className="flex flex-col items-center gap-4">
             <div className="bg-[#F1F1F1] rounded-lg py-10 w-full">
-              <Image src={Pictt} alt="Another product" className="mx-auto w-[180px]" />
+              <Image src={Pictt} alt="ZX7 Speaker" className="mx-auto w-[180px]" />
             </div>
             <p className="text-lg font-bold uppercase">ZX7 Speaker</p>
             <Link
@@ -153,7 +179,7 @@ Discover clear, more natural sounding highs than the competition with ZX9’s si
           {/* Like Item 2 */}
           <div className="flex flex-col items-center gap-4">
             <div className="bg-[#F1F1F1] rounded-lg py-10 w-full">
-              <Image src={Picttt} alt="Another product" className="mx-auto w-[180px]" />
+              <Image src={Picttt} alt="XX99 Mark II" className="mx-auto w-[180px]" />
             </div>
             <p className="text-lg font-bold uppercase">XX99 Mark II</p>
             <Link
@@ -167,7 +193,7 @@ Discover clear, more natural sounding highs than the competition with ZX9’s si
           {/* Like Item 3 */}
           <div className="flex flex-col items-center gap-4">
             <div className="bg-[#F1F1F1] rounded-lg py-10 w-full">
-              <Image src={Four} alt="Another product" className="mx-auto w-[180px]" />
+              <Image src={Four} alt="XX99 Mark I" className="mx-auto w-[180px]" />
             </div>
             <p className="text-lg font-bold uppercase">XX99 Mark I</p>
             <Link
@@ -180,8 +206,9 @@ Discover clear, more natural sounding highs than the competition with ZX9’s si
 
         </div>
       </section>
-      <Category/>
-      <Bring/>
+
+      <Category />
+      <Bring />
 
     </div>
   );

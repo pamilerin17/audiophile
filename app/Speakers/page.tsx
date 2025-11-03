@@ -1,5 +1,5 @@
 
-import Four from '@/assets/4.png'
+import Four from '@/assets/assets/assets/product-zx9-speaker/desktop/image-category-page-preview.jpg'
 import Five from '@/assets/image-product.jpg'
 import Image from 'next/image'
 import Bring from '@/components/Bring/Bring'
